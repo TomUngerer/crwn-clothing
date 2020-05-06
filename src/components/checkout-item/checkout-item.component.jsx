@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import './checkout-item.styles.scss'
 
 const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => (
@@ -9,8 +11,8 @@ const CheckoutItem = ({ cartItem: { name, imageUrl, price, quantity } }) => (
     </div>
     <span className='name'>{name}</span>
     <span className='quantity'>{quantity}</span>
-    <span className='price'>{price}</span>
-    <div className='remove'>&#10005;</div>
+    <span className='price'>£{price}</span>
+    <div className='remove'><FontAwesomeIcon icon={['fal', 'trash-alt']} /></div>
   </div>
 )
 

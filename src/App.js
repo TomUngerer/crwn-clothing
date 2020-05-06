@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 
+import 'bootstrap/scss/bootstrap-reboot.scss';
 import './App.css';
 
 import HomePage from './pages/homepage/homepage.component';
@@ -16,6 +17,12 @@ import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors'
+
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fal } from '@fortawesome/pro-light-svg-icons'
+
+library.add(fal)
 
 
 class App extends React.Component {

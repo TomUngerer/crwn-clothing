@@ -5,13 +5,14 @@ import { createStructuredSelector } from 'reselect'
 import { toggleCartHidden } from '../../redux/cart/cart.actions'
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors'
 
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './cart-icon.styles.scss'
 
+
 const CartIcon = ({toggleCartHidden, itemCount}) => (
   <div className='cart-icon' onClick={toggleCartHidden} >
-    <ShoppingIcon className='shopping-icon' />
+    <FontAwesomeIcon className='shopping-icon' icon={['fal', 'shopping-bag']} />
     <span className='item-count'>{itemCount}</span>
   </div>
 )
