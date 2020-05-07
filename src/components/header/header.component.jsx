@@ -9,36 +9,52 @@ import CartIcon from '../cart-icon/cart-icon.component'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import { selectCartHidden } from '../../redux/cart/cart.selectors'
 import { selectCurrentUser } from '../../redux/user/user.selectors'
+import { toggleCartHidden } from '../../redux/cart/cart.actions'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
+import CSSTransition from 'react-transition-group/CSSTransition';
+
 import './header.styles.scss';
 
-const Header = ({ currentUser, hidden }) => (
-  <div className='header'>
-    <Link className='logo-container' to="/">
-      <Logo className='logo' />
-    </Link>
-    <div className='options'>
-      <Link className='option' to='/shop'>
-        SHOP
+const Header = ({ currentUser, hidden, dispatch }) => {
+  return(
+    <div className='header'>
+      <Link className='logo-container' to="/">
+        <Logo className='logo' />
       </Link>
-      <Link className='option' to='/contact'>
-        CONTACT
-      </Link>
-      {
-        currentUser ?
-        <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
-        :
-        <Link className='option' to='/signin'>SIGN IN</Link>
-      }
-      <CartIcon />
+      <div className='options'>
+        <Link className='option' to='/shop'>
+          SHOP
+        </Link>
+        <Link className='option' to='/contact'>
+          CONTACT
+        </Link>
+        {
+          currentUser ?
+          <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
+          :
+          <Link className='option' to='/signin'>SIGN IN</Link>
+        }
+        <div 
+          onClick={() => {
+            dispatch(toggleCartHidden())
+          }}
+        >
+          <CartIcon />
+        </div>
+      </div>
+        <CSSTransition
+          in={!hidden}
+          classNames="cart-dropdown"
+          timeout={300}
+          unmountOnExit
+        >
+          <CartDropdown />
+        </CSSTransition>
     </div>
-    {
-      hidden ? null : <CartDropdown />
-    }
-  </div>
-)
+  )
+}
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

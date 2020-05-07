@@ -4,6 +4,7 @@ import { removeItemFromCart } from './cart.utils'
 
 const INITIAL_STATE = {
   hidden: true,
+  checkoutHidden: true,
   cartItems: []
 };
 
@@ -13,6 +14,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hidden: !state.hidden
+      }
+    case CartActionTypes.TOGGLE_CHECKOUT_HIDDEN:
+      return {
+        ...state,
+        checkoutHidden: !state.checkoutHidden
       }
     case CartActionTypes.ADD_ITEM:
       return {

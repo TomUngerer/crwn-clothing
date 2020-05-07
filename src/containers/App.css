@@ -1,0 +1,25 @@
+html{
+  height: 100vh;
+  overflow-y: hidden; 
+}
+
+body{
+  font-family: 'Open Sans Condensed';
+  height: 100vh;
+  overflow-y: scroll; 
+  /*box-shadow: inset 100px 100px 100px #ecf0f3, inset -100px -100px 100px #fff;*/
+  box-shadow: inset 100px 100px 200px #ecf0f3, inset -100px -100px 200px #ecf0f3;
+}
+
+.main-wrapper{
+  padding: 90px 15px 20px;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+*{
+  box-sizing: border-box;
+}
