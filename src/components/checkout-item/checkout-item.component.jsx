@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 
 import { clearItemFromCart, addItem, removeItem } from '../../redux/cart/cart.actions'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { ReactComponent as AngleLeftLight } from '../../assets/angle-left-light.svg';
+import { ReactComponent as AngleRightLight } from '../../assets/angle-right-light.svg';
+import { ReactComponent as TrashAltLight } from '../../assets/trash-alt-light.svg';
 
 import './checkout-item.styles.scss'
 
@@ -17,15 +19,15 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
       <span className='name'>{name}</span>
       <span className='quantity'>
         <div className='arrow' onClick={() => removeItem(cartItem)} >
-          <FontAwesomeIcon icon={['fal', 'chevron-left']} />
+          <AngleLeftLight className='icon' />
         </div>
         <span className='value'>{quantity}</span>
         <div className='arrow' onClick={() => addItem(cartItem)} >
-          <FontAwesomeIcon icon={['fal', 'chevron-right']} />
+          <AngleRightLight className='icon' />
         </div>
       </span>
       <span className='price'>£{price}</span>
-      <div className='remove-button' onClick={() => clearItem(cartItem)}><FontAwesomeIcon icon={['fal', 'trash-alt']} /></div>
+      <div className='remove-button' onClick={() => clearItem(cartItem)}><TrashAltLight className='icon' /></div>
     </div>
   )
 }

@@ -19,12 +19,6 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors'
 
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fal } from '@fortawesome/pro-light-svg-icons'
-
-library.add(fal)
-
-
 class App extends React.Component {
   unsubscribeFromAuth = null;
 

@@ -11,3 +11,8 @@ a{
 *{
   box-sizing: border-box;
 }
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
